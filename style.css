@@ -1,0 +1,5 @@
+* {
+    --primary-color: lightblue;
+    --secondary-color: white;
+    box-sizing: border-box;
+}
