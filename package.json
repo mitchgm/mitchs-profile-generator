@@ -1,0 +1,24 @@
+{
+    "name": "mitchs-profile-generator",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "jest --verbose test/*"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/mitchgm/mitchs-profile-generator.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/mitchgm/mitchs-profile-generator/issues"
+    },
+    "homepage": "https://github.com/mitchgm/mitchs-profile-generator#readme",
+    "dependencies": {
+      "inquirer": "^8.2.4",
+      "jest": "^24.8.0"
+    }
+  }
