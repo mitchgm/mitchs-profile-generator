@@ -129,42 +129,42 @@ function startGenerator() {
             })
     };
 
-    function employeeStart() {
-        // starting the prompt
-        inquirer.prompt(
-            [
-                {
-                    // setting the promps, each with a message and going to a variable
-                    type: "input",
-                    message: "What is the employee's name?",
-                    name: "employeeName",
-                },
-                {
-                    type: "input",
-                    message: "What is the employee's id num?",
-                    name: "employeeId",
-                },
-                {
-                    type: "input",
-                    message: "What is the employee's email?",
-                    name: "employeeEmail",
-                },
-                {
-                    type: "input",
-                    message: "What is the employee's office number?",
-                    name: "employeeNumber",
-                },
+    // function employeeStart() {
+    //     // starting the prompt
+    //     inquirer.prompt(
+    //         [
+    //             {
+    //                 // setting the promps, each with a message and going to a variable
+    //                 type: "input",
+    //                 message: "What is the employee's name?",
+    //                 name: "employeeName",
+    //             },
+    //             {
+    //                 type: "input",
+    //                 message: "What is the employee's id num?",
+    //                 name: "employeeId",
+    //             },
+    //             {
+    //                 type: "input",
+    //                 message: "What is the employee's email?",
+    //                 name: "employeeEmail",
+    //             },
+    //             {
+    //                 type: "input",
+    //                 message: "What is the employee's office number?",
+    //                 name: "employeeNumber",
+    //             },
 
-            ])
-            .then(employeeInfo => {
-                // putting all the collected info into a variable that can be pushed to our array
-                const { employeeName, employeeId, employeeEmail, employeeNumber } = employeeInfo;
-                const employee = new employee(employeeName, employeeId, employeeEmail, employeeNumber);
+    //         ])
+    //         .then(employeeInfo => {
+    //             // putting all the collected info into a variable that can be pushed to our array
+    //             const { employeeName, employeeId, employeeEmail, employeeNumber } = employeeInfo;
+    //             const employee = new employee(employeeName, employeeId, employeeEmail, employeeNumber);
 
-                employeeArray.push(employee)
-                // pushing the info
-            })
-    };
+    //             employeeArray.push(employee)
+    //             // pushing the info
+    //         })
+    // };
 
     function startTeam() {
         // this is the initial prompt
@@ -177,9 +177,9 @@ function startGenerator() {
         }]).then(function (input) {
             switch (input.addMember) {
                 // each function path based on the initial input
-                case "Employee":
-                    employeeStart();
-                    break;
+                // case "Employee":
+                //     employeeStart();
+                //     break;
                 case "Engineer":
                     engineerStart();
                     break;
