@@ -16,11 +16,12 @@ const employeeArray = [];
 function startGenerator() {
     // function call
 
-    function employeeStart() {
+    function managerStart() {
         // starting the prompt
         inquirer.prompt(
             [
                 {
+                    // setting the promps, each with a message and going to a variable
                     type: "input",
                     message: "What is the manager's name?",
                     name: "managerName",
@@ -42,19 +43,175 @@ function startGenerator() {
                 },
 
             ])
+            .then(managerInfo => {
+                // putting all the collected info into a variable that can be pushed to our array
+                const { managerName, managerId, managerEmail, managerNumber } = managerInfo;
+                const manager = new Manager(managerName, managerId, managerEmail, managerNumber);
+
+                employeeArray.push(manager)
+                // pushing the info
+            })
+    };
+
+    // repeat for all the employee types
+
+    function internStart() {
+        // starting the prompt
+        inquirer.prompt(
+            [
+                {
+                    // setting the promps, each with a message and going to a variable
+                    type: "input",
+                    message: "What is the intern's name?",
+                    name: "internName",
+                },
+                {
+                    type: "input",
+                    message: "What is the intern's id num?",
+                    name: "internId",
+                },
+                {
+                    type: "input",
+                    message: "What is the intern's email?",
+                    name: "internEmail",
+                },
+                {
+                    type: "input",
+                    message: "What is the intern's office number?",
+                    name: "internNumber",
+                },
+
+            ])
+            .then(internInfo => {
+                // putting all the collected info into a variable that can be pushed to our array
+                const { internName, internId, internEmail, internNumber } = internInfo;
+                const intern = new intern(internName, internId, internEmail, internNumber);
+
+                employeeArray.push(intern)
+                // pushing the info
+            })
+    };
+
+    function engineerStart() {
+        // starting the prompt
+        inquirer.prompt(
+            [
+                {
+                    // setting the promps, each with a message and going to a variable
+                    type: "input",
+                    message: "What is the engineer's name?",
+                    name: "engineerName",
+                },
+                {
+                    type: "input",
+                    message: "What is the engineer's id num?",
+                    name: "engineerId",
+                },
+                {
+                    type: "input",
+                    message: "What is the engineer's email?",
+                    name: "engineerEmail",
+                },
+                {
+                    type: "input",
+                    message: "What is the engineer's office number?",
+                    name: "engineerNumber",
+                },
+
+            ])
+            .then(engineerInfo => {
+                // putting all the collected info into a variable that can be pushed to our array
+                const { engineerName, engineerId, engineerEmail, engineerNumber } = engineerInfo;
+                const engineer = new engineer(engineerName, engineerId, engineerEmail, engineerNumber);
+
+                employeeArray.push(engineer)
+                // pushing the info
+            })
+    };
+
+    function employeeStart() {
+        // starting the prompt
+        inquirer.prompt(
+            [
+                {
+                    // setting the promps, each with a message and going to a variable
+                    type: "input",
+                    message: "What is the employee's name?",
+                    name: "employeeName",
+                },
+                {
+                    type: "input",
+                    message: "What is the employee's id num?",
+                    name: "employeeId",
+                },
+                {
+                    type: "input",
+                    message: "What is the employee's email?",
+                    name: "employeeEmail",
+                },
+                {
+                    type: "input",
+                    message: "What is the employee's office number?",
+                    name: "employeeNumber",
+                },
+
+            ])
+            .then(employeeInfo => {
+                // putting all the collected info into a variable that can be pushed to our array
+                const { employeeName, employeeId, employeeEmail, employeeNumber } = employeeInfo;
+                const employee = new employee(employeeName, employeeId, employeeEmail, employeeNumber);
+
+                employeeArray.push(employee)
+                // pushing the info
+            })
+    };
+
+    function startTeam() {
+        inquirer.prompt([{
+            type: "list",
+            message: "What type of employee will you be collecting info for?",
+            name: "addMember",
+            choices: ["Employee", "Engineer", "Intern", "Manager", "None"]
+        }]).then(function (input) {
+            switch (input.addMember) {
+                case "Employee":
+                    employeeStart();
+                    break;
+                case "Engineer":
+                    engineerStart();
+                    break;
+                case "Intern":
+                    internStart();
+                    break;
+                case "Manager":
+                    managerStart();
+                    break;
+
+
+                default:
+                    defaultCase();
+            }
+        })
     }
 
 
+    function defaultCase() {
+        fs.writeFileSync(output, generate(employeeArray), "UTF-8")
+    };
 
 
 
 
 
+
+    startTeam();
 
 };
 
 
 
+
+startGenerator();
 
 
 
