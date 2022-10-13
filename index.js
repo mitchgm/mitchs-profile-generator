@@ -167,13 +167,16 @@ function startGenerator() {
     };
 
     function startTeam() {
+        // this is the initial prompt
         inquirer.prompt([{
             type: "list",
             message: "What type of employee will you be collecting info for?",
             name: "addMember",
             choices: ["Employee", "Engineer", "Intern", "Manager", "None"]
+            // choice decides the use case for the function
         }]).then(function (input) {
             switch (input.addMember) {
+                // each function path based on the initial input
                 case "Employee":
                     employeeStart();
                     break;
@@ -190,12 +193,14 @@ function startGenerator() {
 
                 default:
                     defaultCase();
+                // the default will run if nothing is selected or the none is chosen 
             }
         })
     }
 
 
     function defaultCase() {
+        // the default will run if nothing is selected or the none is chosen 
         fs.writeFileSync(output, generate(employeeArray), "UTF-8")
     };
 
