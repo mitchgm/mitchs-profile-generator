@@ -9,15 +9,6 @@ In this challenge, we are tasked with making a profile generator web app.
 
 
 
-
-# Usage 
-
-![screenshot of home page](/home.jpg) 
-
-![screenshot of the body](/body.jpg)
-
-
-
 # User Story
 
 AS A small business owner
